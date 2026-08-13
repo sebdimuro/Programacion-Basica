@@ -9,11 +9,11 @@ int multiplicar(int x, int y);
 
 void dividir(float z, float k);
 
-void potenciacion(int x, int y);
+void potenciacion(double n, double m);
 
 int main(){
 
-	int opcion; int x; 	int y; float z; float k;
+	int opcion; int x; 	int y; float z; float k; double n; double m;
 	
 	do{
 		cout<<"\nMenu - [Calculadora]"<<endl;
@@ -75,11 +75,11 @@ int main(){
 			case 5:{
 				cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
 				cout<<"Digite la base: "<<endl;
-				cin>>x;
+				cin>>n;
 				cout<<"Digite la potencia: "<<endl;
-				cin>>y;
+				cin>>m;
 				
-				potenciacion(x,y);
+				potenciacion(n,m);
 				
 				break;
 			}
@@ -128,13 +128,26 @@ void dividir(float z, float k){
 		cout<<"El resultado de su division es: "<<division<<endl;
 	}
 }
-void potenciacion(int x, int y){
+void potenciacion(double n, double m){
 	
-	int potencia=1;
+	double potencia=1;
 	
-	for(int i=0; i<y; i++){
-		potencia = potencia*x;
+	if(m>0){	
+		
+		for(int i=0; i<m; i++){
+		potencia = potencia*n;
+		}
+		cout<<"El resultado de su potenciacion es: "<<potencia<<endl;
 	}
-	cout<<"El resultado de su potenciacion es: "<<potencia<<endl;
-	
+	else if(m==0){
+		cout<<"El resultado de su potenciacion es: 1"<<endl;
+	}
+	else if(m<0){
+		m= m*-1;
+		for(int i=0; i<m; i++){
+			potencia = potencia*n;
+		}
+		cout<<"El resultado de su potenciacion es: "<<"1/"<<potencia<<endl;
+		cout<<"El resultado de su potenciacion en Decimales es: "<<1/potencia<<endl;
+	}
 }
